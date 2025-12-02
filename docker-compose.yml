@@ -1,0 +1,42 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:16
+    container_name: fullstack_db
+    environment:
+      POSTGRES_DB: fullstack_db
+      POSTGRES_USER: fullstack_user
+      POSTGRES_PASSWORD: fullstack_pass
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  backend:
+    build:
+      context: ./backend
+    container_name: fullstack_backend
+    command: gunicorn config.wsgi:application --bind 0.0.0.0:8000
+    env_file:
+      - ./backend/.env
+    environment:
+      POSTGRES_HOST: db
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: fullstack_frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
