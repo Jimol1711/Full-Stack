@@ -1,2 +1,2 @@
-# React-Features
-A small full-stack playground app built with Django (REST API) and a React + TypeScript frontend, fully containerized with Docker, whose purpose is to experiment with and showcase different React features such as routing, state management, context, custom hooks, forms, and data fetching.
+# Full-Stack
+Full Stack is a personal productivity and experimentation dashboard built with a React + TypeScript frontend, a Django REST API backend, and a PostgreSQL database, all containerized with Docker. It lets you create and manage projects, tasks, tags, and notes while exploring modern React patterns (routing, forms, global state, custom hooks) against a real API.
