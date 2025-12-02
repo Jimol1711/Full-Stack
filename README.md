@@ -34,3 +34,5 @@ Install on your machine:
 
 > For basic usage via Docker, you do **not** need Python or Node installed locally.
 
+## Setup
+### 4.1 Clone the repository
